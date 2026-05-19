@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "EMF Tracker",
+    "slug": "emf-tracker",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0A0A0A"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.xbjornsen.emftracker"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0A0A0A"
+      },
+      "package": "com.xbjornsen.emftracker",
+      "permissions": [
+        "android.permission.VIBRATE"
+      ]
+    },
+    "plugins": [
+      "expo-sensors"
+    ],
+    "sdkVersion": "55.0.0"
+  }
+}
