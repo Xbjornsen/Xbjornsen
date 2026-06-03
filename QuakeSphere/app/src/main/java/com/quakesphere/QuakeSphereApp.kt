@@ -6,7 +6,14 @@ import android.app.NotificationManager
 import android.content.Context
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
+import androidx.work.Constraints
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.NetworkType
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
+import com.quakesphere.work.EarthquakeSyncWorker
 import dagger.hilt.android.HiltAndroidApp
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @HiltAndroidApp
@@ -18,6 +25,7 @@ class QuakeSphereApp : Application(), Configuration.Provider {
     override fun onCreate() {
         super.onCreate()
         createNotificationChannel()
+        scheduleBackgroundSync()
     }
 
     override val workManagerConfiguration: Configuration
@@ -32,10 +40,29 @@ class QuakeSphereApp : Application(), Configuration.Provider {
             NotificationManager.IMPORTANCE_HIGH
         ).apply {
             description = "Notifications for significant earthquake events"
+            enableVibration(true)
         }
         val notificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannel(channel)
+    }
+
+    private fun scheduleBackgroundSync() {
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .build()
+
+        val syncRequest = PeriodicWorkRequestBuilder<EarthquakeSyncWorker>(
+            15, TimeUnit.MINUTES
+        )
+            .setConstraints(constraints)
+            .build()
+
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            EarthquakeSyncWorker.WORK_NAME,
+            ExistingPeriodicWorkPolicy.KEEP,
+            syncRequest
+        )
     }
 
     companion object {
