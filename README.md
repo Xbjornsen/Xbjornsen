@@ -22,11 +22,13 @@ Full-stack developer who builds across the whole spectrum — Android apps, web 
 ## 📌 Projects
 
 ### Mobile & Android
-- **[QuakeSphere](https://github.com/Xbjornsen/QuakeSphere)** — Kotlin · Real-time earthquake tracking app
+- **[QuakeStation](https://github.com/Xbjornsen/QuakeStation)** — Kotlin · Real-time Android earthquake tracker with a custom 3D OpenGL globe. USGS data, swarm detection, time-lapse replay, tectonic plates, active volcanoes
 - **[BjornPlayer](https://github.com/Xbjornsen/BjornPlayer)** — Kotlin · Clean, ad-free local music player for Android. No accounts, no internet, no nonsense
+- **[RoastCompanion](https://github.com/Xbjornsen/RoastCompanion)** — Kotlin · Coffee roasting companion app
 - **[emf-tracker](https://github.com/Xbjornsen/emf-tracker)** — Kotlin · Measure and track electromagnetic frequencies
 
 ### Web Platforms & Landing Pages
+- **[quakestation-web](https://github.com/Xbjornsen/quakestation-web)** — TypeScript · Web companion for QuakeStation
 - **[UTCLA](https://github.com/Xbjornsen/UTCLA)** — TypeScript · United Tribal Countries Land Alliance platform
 - **[UTCLA-Bitcoin-treasury](https://github.com/Xbjornsen/UTCLA-Bitcoin-treasury)** — HTML · Bitcoin treasury management for UTCLA
 - **[SpartanDesign](https://github.com/Xbjornsen/SpartanDesign)** — TypeScript · Design your own brackets & files for laser cutting
